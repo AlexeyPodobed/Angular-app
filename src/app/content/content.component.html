@@ -1,0 +1,11 @@
+<section class="content">
+  <div class="content__wrap">
+    <app-add-movie></app-add-movie>
+    <div
+      class="content__section content__sectionNew"
+      *ngFor="let movie of moviesArr"
+    >
+      <app-one-movie [oneMovie]="movie"></app-one-movie>
+    </div>
+  </div>
+</section>

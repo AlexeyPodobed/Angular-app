@@ -1,0 +1,13 @@
+<!-- <h1 mat-dialog-title>Hi {{ data.Title }}</h1> -->
+<div mat-dialog-content class="add__movieModal">
+  <div class="add__wrap">
+    <input class="add__input" type="text" placeholder="Add title.." />
+    <input class="add__input" type="text" placeholder="Add rating.." />
+  </div>
+  <div mat-dialog-actions class="add__buttons">
+    <button mat-button (click)="onNoClick()">Show</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>
+      Save
+    </button>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.add__movieModal {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.add__wrap {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+}
+.add__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

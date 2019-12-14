@@ -1,0 +1,22 @@
+<div
+  mat-raised-button
+  (click)="openDialog()"
+  class="content__section content__sectionNew"
+>
+  <div class="content__imgWrap">
+    <img class="content__img" src="{{ oneMovie.imgUrl }}" alt="img" />
+  </div>
+  <div class="content__info">
+    <div class="content__info--flex">
+      <div class="content__title">{{ oneMovie.Title }}</div>
+      <div class="content__likes content--padding">
+        <img src="img/iconLikes.png" alt="icon" /><span>3632</span>
+      </div>
+      <div class="content__coments content--padding">
+        <img src="img/iconComments.png" alt="icon" /><span>221</span>
+      </div>
+      <div class="content__rating">Rating: {{ oneMovie.Rating }}</div>
+      <div class="content__date">Release date: {{ realeseDate }}</div>
+    </div>
+  </div>
+</div>
