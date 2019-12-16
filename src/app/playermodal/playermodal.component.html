@@ -11,18 +11,22 @@
     <img
       mat-dialog-title
       class="player__img"
-      src="{{ data.imgUrl }}"
+      src="{{ data.srcImage }}"
       alt="img"
     />
   </div>
   <div class="player__options">
     <div class="player__description--flex">
-      <div mat-dialog-title class="player__movieTitle">{{ data.Title }}</div>
+      <div mat-dialog-title class="player__movieTitle">{{ data.TitleAlt }}</div>
       <div mat-dialog-title class="player__movieRating">
-        RunTime: {{ data.Rating }}
+        RunTime: {{ data.RunTime }}
       </div>
-      <div mat-dialog-title class="player__movieGanres">Genred:</div>
-      <div mat-dialog-title class="player__movieDescription">Descr</div>
+      <div mat-dialog-title class="player__movieGanres">
+        Genred:{{ data.Genred }}
+      </div>
+      <div mat-dialog-title class="player__movieDescription">
+        Description:{{ data.Description }}
+      </div>
     </div>
   </div>
 </section>

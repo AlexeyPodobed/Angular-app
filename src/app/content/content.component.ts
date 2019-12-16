@@ -15,13 +15,23 @@ export class ContentComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   getContent() {
-    this.http.get<any[]>('http://localhost:3000/films').subscribe(moviesArr => {
-      this.moviesArr = moviesArr;
-      console.log(moviesArr, 'data');
-    });
+    this.http
+      .get('http://localhost:3000/films')
+      .subscribe((moviesArr: any) => (this.moviesArr = moviesArr.list));
+    console.log(this.moviesArr, 'thisData');
   }
+
+  // getContent() {
+  //   this.http.get('http://localhost:3000/films').subscribe((moviesArr: any) => {
+  //     console.log(moviesArr, 'data');
+  //     moviesArr.list.forEach(element => {
+  //       this.moviesArr.push(element);
+  //     });
+  //     console.log(this.moviesArr, 'thisData');
+  //   });
+  // }
   ngOnInit() {
-    const result = this.getContent();
+    this.getContent();
   }
 }
 

@@ -1,5 +1,7 @@
 export class MovieModel {
-  Title: string;
-  Rating: number;
-  imgUrl: any;
+  TitleAlt: string;
+  Genred: string;
+  RunTime: number;
+  srcImage: string;
+  Description: string;
 }

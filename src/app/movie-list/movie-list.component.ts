@@ -23,24 +23,6 @@ export class MovieListComponent {
   //   }
   // }
 }
-//   public moviesArr: MovieModel[];
-
-//   constructor(private http: HttpClient) {}
-
-//   private contentUrl = 'http://localhost:3000/films';
-
-//   public getContent(): Promise<Array<any>> {
-//     const response = this.http.get<any[]>(this.contentUrl);
-//     return response.toPromise();
-//   }
-//   ngOnInit() {
-//     const result = this.getContent();
-//     result.then(data => {
-//       this.moviesArr = data;
-//       console.log('data:', data);
-//     });
-//   }
-// }
 
 //   public moviesArr: MovieModel[] = [
 //     {

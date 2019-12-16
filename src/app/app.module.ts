@@ -1,7 +1,3 @@
-import {
-  HttpClientInMemoryWebApiModule,
-  InMemoryDbService
-} from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMovieModalComponent } from './add-movie-modal/add-movie-modal.component';
 import { from } from 'rxjs';
 import { HttpClient } from 'selenium-webdriver/http';
-import { InMemoryDataServiceService } from 'src/app/api/in-memory-data-service.service';
 
 @NgModule({
   declarations: [
@@ -51,9 +46,6 @@ import { InMemoryDataServiceService } from 'src/app/api/in-memory-data-service.s
     FormsModule,
     MatInputModule,
     HttpClientModule
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataServiceService, {
-    //   dataEncapsulation: false
-    // })
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
