@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   MatDialogModule,
@@ -45,7 +46,8 @@ import { HttpClient } from 'selenium-webdriver/http';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },

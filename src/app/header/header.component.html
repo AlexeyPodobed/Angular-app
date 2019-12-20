@@ -7,8 +7,16 @@
     </div>
   </div>
   <div class="header__menu">
-    <div id="btnCategoties" class="header__categories">Categories</div>
-    <div class="header__novetle">New Films</div>
+    <button type="button" class="header__buttons">New Films</button>
+
+    <mat-form-field>
+      <mat-label>Categories</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let ganre of ganres" [value]="ganre.viewValue">
+          {{ ganre.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
   <div class="header__search">
     <input class="header__searchInp" placeholder="Search..." />

@@ -4,4 +4,5 @@ export class MovieModel {
   RunTime: number;
   srcImage: string;
   Description: string;
+  viewValue: string;
 }
