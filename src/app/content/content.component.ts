@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieModel } from 'src/app/models/movie.model';
 import { Observable, from } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
@@ -12,7 +12,7 @@ export class ContentComponent implements OnInit {
   constructor(private httpService: HttpService) {}
   public moviesArr: MovieModel[] = [];
   public selectedMoviesArr: MovieModel[] = [];
-
+  @Input() ganres: MovieModel[];
   getContent() {
     const response = this.httpService.sendGetRequest(
       'http://localhost:3000/films'
@@ -20,18 +20,18 @@ export class ContentComponent implements OnInit {
     response.subscribe((moviesArr: any) => {
       this.moviesArr = moviesArr.list;
       this.selectedMoviesArr = moviesArr.list;
-      console.log('m', this.selectedMoviesArr);
     });
   }
+
   ganresFilter() {
     this.selectedMoviesArr = [];
-    this.moviesArr.forEach(function(value, key) {
-      if (value.Genred === 'Жахи') {
-        this.selectedMoviesArr.push(value);
+    const filteredArray = [];
+    this.moviesArr.forEach(value => {
+      if (value.Genred === '') {
+        filteredArray.push(value);
       }
-      console.log(this.selectedMoviesArr, 'fil');
-      return this.selectedMoviesArr;
     });
+    this.selectedMoviesArr = [...filteredArray];
   }
 
   test() {
