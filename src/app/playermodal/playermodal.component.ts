@@ -11,9 +11,7 @@ export class PlayermodalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<PlayermodalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: MovieModel
-  ) {
-    console.log('DD', data);
-  }
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();

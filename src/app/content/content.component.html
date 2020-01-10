@@ -1,12 +1,13 @@
 <section class="content">
   <div class="content__wrap">
-    <button (click)="ganresFilter()">Filter</button>
     <app-add-movie></app-add-movie>
+    <button (click)="postContent()">Add new FILM TO CONTENT</button>
     <div
       class="content__section content__sectionNew"
       *ngFor="let movie of selectedMoviesArr"
     >
       <app-one-movie [oneMovie]="movie"></app-one-movie>
+
       <!-- <button (click)="test()">Add new FILM TO CONTENT</button> -->
     </div>
   </div>

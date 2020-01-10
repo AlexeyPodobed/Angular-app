@@ -1,12 +1,53 @@
-<!-- <h1 mat-dialog-title>Hi {{ data.Title }}</h1> -->
 <div mat-dialog-content class="add__movieModal">
   <div class="add__wrap">
-    <input class="add__input" type="text" placeholder="Add title.." />
-    <input class="add__input" type="text" placeholder="Add rating.." />
+    <div>
+      <div class="add__textWrap">
+        <input
+          [(ngModel)]="title"
+          class="add__input"
+          type="text"
+          placeholder="Add title.."
+        />
+        <span>Title:{{ title }}</span>
+      </div>
+      <div class="add__textWrap">
+        <input
+          [(ngModel)]="rating"
+          class="add__input"
+          type="text"
+          placeholder="Add rating.."
+        />
+        <span>Rating:{{ rating }}</span>
+      </div>
+    </div>
+    <div>
+      <div class="add__textWrap">
+        <input
+          [(ngModel)]="genred"
+          class="add__input"
+          type="text"
+          placeholder="Add ganre.."
+        />
+        <span>Ganre:{{ genred }}</span>
+      </div>
+      <div class="add__textWrap">
+        <input
+          [(ngModel)]="runTime"
+          class="add__input"
+          type="text"
+          placeholder="Add run time.."
+        />
+        <span>Run time:{{ runTime }}</span>
+      </div>
+    </div>
   </div>
   <div mat-dialog-actions class="add__buttons">
-    <button mat-button (click)="onNoClick()">Show</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>
+    <button
+      class="add__button"
+      mat-button
+      [mat-dialog-close]="data.animal"
+      cdkFocusInitial
+    >
       Save
     </button>
   </div>

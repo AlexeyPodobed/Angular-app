@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-component.component.css']
 })
 export class MainComponentComponent implements OnInit {
+  selectedGenre: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  siblingSelection(value: string) {
+    console.log('MAIN COMPONENT:', value);
+    this.selectedGenre = value;
   }
-
 }

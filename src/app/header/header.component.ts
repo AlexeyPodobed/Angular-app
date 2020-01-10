@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { MovieModel } from 'src/app/models/movie.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,9 @@ import { MovieModel } from 'src/app/models/movie.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  selectedGanre = new FormControl();
+  @Output() selectEvent = new EventEmitter<string>();
+
   @Output() ganres: MovieModel[] = [
     {
       Genred: 'Комедія',
@@ -25,8 +29,40 @@ export class HeaderComponent implements OnInit {
       RunTime: NaN
     },
     {
-      Genred: 'Жахи',
-      viewValue: 'Horor',
+      Genred: 'Пригоди',
+      viewValue: 'Adventure',
+      TitleAlt: '',
+      Description: '',
+      srcImage: '',
+      RunTime: NaN
+    },
+    {
+      Genred: 'Фентезі',
+      viewValue: 'Fantasy',
+      TitleAlt: '',
+      Description: '',
+      srcImage: '',
+      RunTime: NaN
+    },
+    {
+      Genred: 'Сімейний',
+      viewValue: 'Family',
+      TitleAlt: '',
+      Description: '',
+      srcImage: '',
+      RunTime: NaN
+    },
+    {
+      Genred: 'Драма',
+      viewValue: 'Drama',
+      TitleAlt: '',
+      Description: '',
+      srcImage: '',
+      RunTime: NaN
+    },
+    {
+      Genred: 'all',
+      viewValue: 'All',
       TitleAlt: '',
       Description: '',
       srcImage: '',
@@ -37,4 +73,9 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  selectGenre(selectedValue: string) {
+    this.selectEvent.emit(selectedValue);
+    console.log('HEADER COMPONENT', selectedValue);
+  }
 }

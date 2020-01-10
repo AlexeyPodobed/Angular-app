@@ -12,4 +12,7 @@ export class HttpService {
   sendGetRequest(url: string) {
     return this.http.get(url);
   }
+  sendPostRequest(url: string, movie: MovieModel) {
+    return this.http.post(url, movie);
+  }
 }

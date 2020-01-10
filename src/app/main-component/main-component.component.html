@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (selectEvent)="siblingSelection($event)"></app-header>
 <app-slider></app-slider>
 <app-movie-list></app-movie-list>
-<app-content></app-content>
+<app-content [selectedGenre]="selectedGenre"></app-content>
