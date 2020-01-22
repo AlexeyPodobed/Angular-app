@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { MovieModel } from 'src/app/models/movie.model';
+import { SelectModel } from 'src/app/models/movie.model';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,62 +11,34 @@ export class HeaderComponent implements OnInit {
   selectedGanre = new FormControl();
   @Output() selectEvent = new EventEmitter<string>();
 
-  @Output() ganres: MovieModel[] = [
+  @Output() ganres: SelectModel[] = [
     {
       Genred: 'Комедія',
-      viewValue: 'Comedy',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Comedy'
     },
     {
       Genred: 'Триллер',
-      viewValue: 'Triller',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Triller'
     },
     {
       Genred: 'Пригоди',
-      viewValue: 'Adventure',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Adventure'
     },
     {
       Genred: 'Фентезі',
-      viewValue: 'Fantasy',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Fantasy'
     },
     {
       Genred: 'Сімейний',
-      viewValue: 'Family',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Family'
     },
     {
       Genred: 'Драма',
-      viewValue: 'Drama',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'Drama'
     },
     {
       Genred: 'all',
-      viewValue: 'All',
-      TitleAlt: '',
-      Description: '',
-      srcImage: '',
-      RunTime: NaN
+      viewValue: 'All'
     }
   ];
 

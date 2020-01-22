@@ -1,14 +1,20 @@
 <section class="content">
   <div class="content__wrap">
-    <app-add-movie></app-add-movie>
-    <button (click)="postContent()">Add new FILM TO CONTENT</button>
+    <app-add-movie (createEvent)="pushMovieToArray($event)"></app-add-movie>
     <div
       class="content__section content__sectionNew"
-      *ngFor="let movie of selectedMoviesArr"
+      *ngFor="
+        let movie of selectedMoviesArr
+          | paginate: { itemsPerPage: count, currentPage: p }
+      "
     >
-      <app-one-movie [oneMovie]="movie"></app-one-movie>
-
-      <!-- <button (click)="test()">Add new FILM TO CONTENT</button> -->
+      <button class="delete__button" (click)="deleteContent(movie.ID)">
+        Delete
+      </button>
+      <app-one-movie [oneMovie]="movie"> </app-one-movie>
     </div>
+  </div>
+  <div class="paggination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </section>

@@ -3,13 +3,13 @@
   height: 500px;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 .content__section:hover {
   z-index: 1;
   border-radius: 15px;
   background: #db363c;
   opacity: 0.7;
-  /* padding-top: 10px; */
 }
 
 .content__img {
@@ -52,4 +52,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.content__deleteButton {
+  z-index: 100;
 }

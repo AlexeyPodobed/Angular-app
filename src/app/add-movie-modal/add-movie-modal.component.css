@@ -1,6 +1,7 @@
 .add__movieModal {
   width: 600px;
   height: 500px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -11,8 +12,9 @@
 .add__wrap {
   width: 600px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
 }
 .add__textWrap {
   padding-top: 10px;
@@ -20,9 +22,23 @@
   flex-direction: column;
   color: #424242;
 }
+.add__textWrap--descr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #424242;
+}
+.add__textArea {
+  width: 400px;
+  height: 150px;
+}
 .add__input {
   width: 200px;
   height: 30px;
+}
+.add__input-invalid {
+  border-color: red;
 }
 .add__buttons {
   width: 100%;
@@ -37,4 +53,7 @@
   background-color: #424242;
   color: white;
   font-size: 15px;
+}
+.modal__alert {
+  color: red;
 }

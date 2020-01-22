@@ -1,10 +1,9 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { MovieModel } from 'src/app/models/movie.model';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AddMovieModalComponent } from 'src/app/add-movie-modal/add-movie-modal.component';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-movie',
@@ -12,15 +11,28 @@ import { from } from 'rxjs';
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent implements OnInit {
-  @Input() addMovie: MovieModel;
+  @Output() createEvent = new EventEmitter<any>();
 
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    this.dialog.open(AddMovieModalComponent, {
-      data: this.addMovie
+    const openedDialog = this.dialog.open(AddMovieModalComponent, {
+      data: {}
+    });
+
+    openedDialog.afterClosed().subscribe(result => {
+      if (result && result.isSuccess) {
+        // this.createMovieFunction(result.value);
+        this.createEvent.emit(result.value);
+      }
     });
   }
+
+  // notifyChanges(movie: MovieModel) {
+  //   this.createdMovie = movie;
+
+  //   console.log('SSS ', this.createdMovie);
+  // }
 
   ngOnInit() {}
 }

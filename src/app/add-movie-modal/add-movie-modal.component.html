@@ -1,54 +1,116 @@
-<div mat-dialog-content class="add__movieModal">
+<form
+  mat-dialog-content
+  class="add__movieModal"
+  [formGroup]="formValue"
+  (ngSubmit)="onSubmit()"
+>
   <div class="add__wrap">
     <div>
       <div class="add__textWrap">
         <input
-          [(ngModel)]="title"
           class="add__input"
           type="text"
           placeholder="Add title.."
+          formControlName="TitleAlt"
+          [ngClass]="{
+            'add__input-valid':
+              formValue.controls.TitleAlt.valid &&
+              (formValue.controls.TitleAlt.dirty ||
+                formValue.controls.TitleAlt.touched),
+            'add__input-invalid':
+              formValue.controls.TitleAlt.invalid &&
+              (formValue.controls.TitleAlt.pristine ||
+                formValue.controls.TitleAlt.touched)
+          }"
         />
-        <span>Title:{{ title }}</span>
+        <span>Title:</span>
       </div>
       <div class="add__textWrap">
         <input
-          [(ngModel)]="rating"
           class="add__input"
           type="text"
-          placeholder="Add rating.."
+          placeholder="Add Image.."
+          formControlName="srcImage"
+          [ngClass]="{
+            'add__input-valid':
+              formValue.controls.srcImage.valid &&
+              (formValue.controls.srcImage.dirty ||
+                formValue.controls.srcImage.touched),
+            'add__input-invalid':
+              formValue.controls.srcImage.invalid &&
+              (formValue.controls.srcImage.pristine ||
+                formValue.controls.srcImage.touched)
+          }"
         />
-        <span>Rating:{{ rating }}</span>
+        <span>Add Image:</span>
       </div>
     </div>
     <div>
       <div class="add__textWrap">
-        <input
-          [(ngModel)]="genred"
+        <select
           class="add__input"
-          type="text"
-          placeholder="Add ganre.."
-        />
-        <span>Ganre:{{ genred }}</span>
+          formControlName="Genred"
+          [ngClass]="{
+            'add__input-valid':
+              formValue.controls.Genred.valid &&
+              (formValue.controls.Genred.dirty ||
+                formValue.controls.Genred.touched),
+            'add__input-invalid':
+              formValue.controls.Genred.invalid &&
+              (formValue.controls.Genred.pristine ||
+                formValue.controls.Genred.touched)
+          }"
+        >
+          <option value="">Please select a ganre.. </option>
+          <option *ngFor="let ganre of ganres" [value]="ganre.Genred">{{
+            ganre.Genred
+          }}</option>
+        </select>
+        <span>Ganre :</span>
       </div>
       <div class="add__textWrap">
         <input
-          [(ngModel)]="runTime"
+          [ngClass]="{
+            'add__input-valid':
+              formValue.controls.RunTime.valid &&
+              (formValue.controls.RunTime.dirty ||
+                formValue.controls.RunTime.touched),
+            'add__input-invalid':
+              formValue.controls.RunTime.invalid &&
+              (formValue.controls.RunTime.pristine ||
+                formValue.controls.RunTime.touched)
+          }"
           class="add__input"
-          type="text"
+          type="number"
           placeholder="Add run time.."
+          formControlName="RunTime"
         />
-        <span>Run time:{{ runTime }}</span>
+        <span>Run time:</span>
       </div>
     </div>
   </div>
-  <div mat-dialog-actions class="add__buttons">
-    <button
-      class="add__button"
-      mat-button
-      [mat-dialog-close]="data.animal"
-      cdkFocusInitial
-    >
+  <div class="add__textWrap--descr">
+    <span>Add Description:</span>
+    <textarea
+      class="add__textArea"
+      type="text"
+      placeholder=""
+      formControlName="Description"
+      [ngClass]="{
+        'add__input-valid':
+          formValue.controls.Description.valid &&
+          (formValue.controls.Description.dirty ||
+            formValue.controls.Description.touched),
+        'add__input-invalid':
+          formValue.controls.Description.invalid &&
+          (formValue.controls.Description.pristine ||
+            formValue.controls.Description.touched)
+      }"
+    ></textarea>
+  </div>
+  <div class="add__buttons">
+    <button type="submit" class="add__button">
       Save
     </button>
   </div>
-</div>
+</form>

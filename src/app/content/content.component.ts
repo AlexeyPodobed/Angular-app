@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MovieModel } from 'src/app/models/movie.model';
 import { Observable, from } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-import { Title } from '@angular/platform-browser';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-content',
@@ -10,16 +10,18 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit, OnChanges {
-  constructor(private httpService: HttpService) {
-    if (this.selectedGenre) {
-      console.log('V', this.selectedGenre);
-    }
-  }
+  constructor(private httpService: HttpService) {}
   public moviesArr: MovieModel[] = [];
   public selectedMoviesArr: MovieModel[] = [];
   @Input() ganres: MovieModel[];
   @Input() selectedGenre: string;
+
+  @Input() formValue: FormGroup;
   valueToUse: 'string';
+
+  page = 1;
+  count = 9;
+
   getContent() {
     const response = this.httpService.sendGetRequest(
       'http://localhost:3000/films'
@@ -29,40 +31,38 @@ export class ContentComponent implements OnInit, OnChanges {
       this.selectedMoviesArr = moviesArr.list;
     });
   }
-  postContent() {
+  pushMovieToArray(createdMovie: MovieModel) {
+    this.moviesArr.push(createdMovie);
+    this.selectedMoviesArr = this.moviesArr;
+    if (this.selectedGenre === createdMovie.Genred) {
+      this.selectedMoviesArr.push(createdMovie);
+    }
+  }
+  deleteContent(movieId: string) {
+    console.log('Movie ', movieId);
+    this.selectedMoviesArr = this.selectedMoviesArr.filter(
+      movie => movie.ID !== movieId
+    );
     this.httpService
-      .sendPostRequest('http://localhost:3000/films', {
-        Description: 'newfilm',
-        Genred: 'Porno',
-        RunTime: 1444,
-        TitleAlt: 'Polnaya huyna',
-        srcImage: 'empty',
-        viewValue: ''
-      })
-      .subscribe((data: MovieModel[]) => {
-        console.log(data);
+      .sendDelateRequest('http://localhost:3000/films', movieId)
+      .subscribe(result => {
+        console.log('RR ', result);
       });
   }
 
-  // test() {
-  //   this.moviesArr.push({
-  //     Description: 'newfilm',
-  //     Genred: 'Porno',
-  //     RunTime: 1444,
-  //     TitleAlt: 'Polnaya huyna',
-  //     srcImage: 'empty',
-  //     viewValue: ''
-  //   });
-  //   console.log('ADDED NEW FILM', this.moviesArr);
-  // }
   ganresFilter(val) {
     this.selectedMoviesArr = [];
-    const filteredArray = [];
-    this.moviesArr.forEach(value => {
-      if (value.Genred === val) {
-        filteredArray.push(value);
-      }
-    });
+    let filteredArray = [];
+    if (val === 'all') {
+      filteredArray = this.moviesArr;
+    } else {
+      this.moviesArr.forEach(value => {
+        if (value.Genred === val) {
+          filteredArray.push(value);
+        }
+      });
+    }
+
     this.selectedMoviesArr = [...filteredArray];
   }
 
@@ -78,12 +78,6 @@ export class ContentComponent implements OnInit, OnChanges {
       this.valueToUse = changes.selectedGenre.currentValue;
 
       this.ganresFilter(this.valueToUse);
-
-      // CALL HERE CORRECT METHOD
-      console.log(
-        'CONTENT COMPONENT, VALUE HAS BEEN CHANGED:',
-        this.valueToUse
-      );
     }
   }
 }

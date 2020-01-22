@@ -2,13 +2,13 @@
   <div class="header__textWrap">
     <div class="header__text">
       <span>m</span>
-      <div class="header__textIcon"><img src="img/iconPlay.png" /></div>
+      <div class="header__textIcon"><img src="assets/img/iconPlay.png" /></div>
       <span>vie store</span>
     </div>
   </div>
   <div class="header__menu">
     <mat-form-field>
-      <mat-label>Categories</mat-label>
+      <mat-label class="header__select">Categories</mat-label>
       <mat-select (selectionChange)="selectGenre($event.value)">
         <mat-option *ngFor="let ganre of ganres" [(value)]="ganre.Genred">
           {{ ganre.viewValue }}

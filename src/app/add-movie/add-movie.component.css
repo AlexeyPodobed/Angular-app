@@ -1,6 +1,7 @@
 .content__sectionNew {
   background: rgb(223, 223, 223);
   border-radius: 15px 15px;
+  margin-top: 20px;
 }
 .content__sectionNew--text {
   width: 100%;

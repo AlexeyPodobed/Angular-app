@@ -51,3 +51,6 @@
   /* background: url(../img/iconSearch.png) no-repeat 90% 50%; */
   font-family: "AdobeGothicStd-Bold";
 }
+.header__select {
+  color: #3f444e;
+}

@@ -7,25 +7,32 @@
   >
     Close
   </button>
-  <div class="player__container">
-    <img
-      mat-dialog-title
-      class="player__img"
-      src="{{ data.srcImage }}"
-      alt="img"
-    />
-  </div>
-  <div class="player__options">
-    <div class="player__description--flex">
-      <div mat-dialog-title class="player__movieTitle">{{ data.TitleAlt }}</div>
-      <div mat-dialog-title class="player__movieRating">
-        RunTime: {{ data.RunTime }}
-      </div>
-      <div mat-dialog-title class="player__movieGanres">
-        Genred:{{ data.Genred }}
-      </div>
-      <div mat-dialog-title class="player__movieDescription">
-        Description:{{ data.Description }}
+  <button class="player__deleteButton" (click)="deleteContent(movie.ID)">
+    Delete
+  </button>
+  <div class="player__wrap">
+    <div class="player__container">
+      <img
+        mat-dialog-title
+        class="player__img"
+        src="{{ data.srcImage }}"
+        alt="img"
+      />
+    </div>
+    <div class="player__options">
+      <div class="player__description--flex">
+        <div mat-dialog-title class="player__movieTitle">
+          {{ data.TitleAlt }}
+        </div>
+        <div mat-dialog-title class="player__movieRating">
+          RunTime: {{ data.RunTime }}
+        </div>
+        <div mat-dialog-title class="player__movieGanres">
+          Genred:{{ data.Genred }}
+        </div>
+        <div mat-dialog-title class="player__movieDescription">
+          Description:{{ data.Description }}
+        </div>
       </div>
     </div>
   </div>
