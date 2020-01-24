@@ -3,11 +3,14 @@
     mat-button
     (click)="onNoClick()"
     type="button"
-    class="playerModal__close"
+    class="playerModal__close playerModal__close--button"
   >
     Close
   </button>
-  <button class="player__deleteButton" (click)="deleteContent(movie.ID)">
+  <button
+    class="player__deleteButton playerModal__close--button"
+    (click)="deleteContent(movie.ID)"
+  >
     Delete
   </button>
   <div class="player__wrap">

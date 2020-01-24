@@ -12,20 +12,22 @@ export class PlayermodalComponent implements OnInit {
   private httpService: HttpService;
   @Input() moviesArr: MovieModel;
   @Input() selectedMoviesArr: MovieModel;
+  ID: MovieModel;
   constructor(
     public dialogRef: MatDialogRef<PlayermodalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: MovieModel
   ) {}
 
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   deleteContent(movieId: string) {
+    console.log('Movie ', movieId);
+
     this.httpService
       .sendDelateRequest('http://localhost:3000/films', movieId)
       .subscribe(result => {
-        this.dialogRef.close();
         console.log('RR ', result);
       });
   }

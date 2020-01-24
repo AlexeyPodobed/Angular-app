@@ -32,13 +32,14 @@
 .add__textArea {
   width: 400px;
   height: 150px;
+  margin-top: 10px;
 }
 .add__input {
   width: 200px;
   height: 30px;
 }
 .add__input-invalid {
-  border-color: red;
+  border: 2px solid #db363c;
 }
 .add__buttons {
   width: 100%;
@@ -53,7 +54,26 @@
   background-color: #424242;
   color: white;
   font-size: 15px;
+  margin-top: 10px;
 }
 .modal__alert {
   color: red;
+}
+@media only screen and (max-width: 830px) {
+  .add__movieModal {
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 30px;
+  }
+  .add__wrap {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .add__input {
+    width: 90%;
+  }
+  .add__textArea {
+    width: 90%;
+    height: 100px;
+  }
 }

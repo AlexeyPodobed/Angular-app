@@ -28,6 +28,7 @@ import { AddMovieModalComponent } from './add-movie-modal/add-movie-modal.compon
 import { from } from 'rxjs';
 import { HttpClient } from 'selenium-webdriver/http';
 import { SliderComponent } from './slider/slider.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SliderComponent } from './slider/slider.component';
     AddMovieComponent,
     PlayermodalComponent,
     AddMovieModalComponent,
-    SliderComponent
+    SliderComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

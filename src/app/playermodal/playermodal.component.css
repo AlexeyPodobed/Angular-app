@@ -15,7 +15,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.playerModal__close {
+.playerModal__close--button {
   width: 80px;
   height: 30px;
   margin-left: 90%;
@@ -24,16 +24,6 @@
   border: none;
   font-family: "AdobeGothicStd-Bold";
 }
-.player__deleteButton {
-  width: 80px;
-  height: 30px;
-  margin-left: 90%;
-  background: #db363c;
-  color: #3f444e;
-  border: none;
-  font-family: "AdobeGothicStd-Bold";
-}
-
 .player__container {
   z-index: 100;
   width: 40%;
@@ -57,4 +47,20 @@
 }
 .player__movieDescription {
   font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .player__wrap {
+    align-items: center;
+    flex-direction: column;
+  }
+  .player__container {
+    height: auto;
+  }
+  .player__options {
+    width: 100%;
+  }
+  .playerModal__close--button {
+    width: 60px;
+  }
 }

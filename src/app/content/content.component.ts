@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+
 import { MovieModel } from 'src/app/models/movie.model';
 import { Observable, from } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';

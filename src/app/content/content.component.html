@@ -1,10 +1,18 @@
 <section class="content">
+  <div class="content__search">
+    <input
+      [(ngModel)]="searchInputValue"
+      class="content__searchInp"
+      placeholder="Search..."
+    />
+  </div>
   <div class="content__wrap">
     <app-add-movie (createEvent)="pushMovieToArray($event)"></app-add-movie>
     <div
       class="content__section content__sectionNew"
       *ngFor="
         let movie of selectedMoviesArr
+          | filter: searchInputValue
           | paginate: { itemsPerPage: count, currentPage: p }
       "
     >

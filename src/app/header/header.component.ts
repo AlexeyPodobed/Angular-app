@@ -1,4 +1,11 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  Input,
+  Inject,
+  EventEmitter
+} from '@angular/core';
 import { SelectModel } from 'src/app/models/movie.model';
 import { FormControl } from '@angular/forms';
 

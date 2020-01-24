@@ -1,22 +1,27 @@
 <header class="header">
-  <div class="header__textWrap">
+  <div (click)="refreshPage()" class="header__textWrap">
     <div class="header__text">
-      <span>m</span>
-      <div class="header__textIcon"><img src="assets/img/iconPlay.png" /></div>
-      <span>vie store</span>
+      <div class="header__text--flex">
+        <span>m</span>
+        <div class="header__textIcon">
+          <img src="assets/img/iconPlay.png" />
+        </div>
+        <span>vie</span>
+      </div>
+      <span> store</span>
     </div>
   </div>
   <div class="header__menu">
     <mat-form-field>
       <mat-label class="header__select">Categories</mat-label>
-      <mat-select (selectionChange)="selectGenre($event.value)">
+      <mat-select
+        class="header__select"
+        (selectionChange)="selectGenre($event.value)"
+      >
         <mat-option *ngFor="let ganre of ganres" [(value)]="ganre.Genred">
           {{ ganre.viewValue }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
-  <div class="header__search">
-    <input class="header__searchInp" placeholder="Search..." />
   </div>
 </header>
