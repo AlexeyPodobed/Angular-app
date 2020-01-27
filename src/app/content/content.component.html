@@ -16,10 +16,11 @@
           | paginate: { itemsPerPage: count, currentPage: p }
       "
     >
-      <button class="delete__button" (click)="deleteContent(movie.ID)">
-        Delete
-      </button>
-      <app-one-movie [oneMovie]="movie"> </app-one-movie>
+      <app-one-movie
+        (deleteEvent)="deleteMovieFromArray($event)"
+        [oneMovie]="movie"
+      >
+      </app-one-movie>
     </div>
   </div>
   <div class="paggination">

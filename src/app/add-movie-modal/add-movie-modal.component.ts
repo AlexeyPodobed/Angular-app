@@ -71,7 +71,7 @@ export class AddMovieModalComponent implements OnInit {
       this.httpService
         .sendPostRequest('http://localhost:3000/films', createdMovie)
         .subscribe((response: any) => {
-          this.dialogRef.close({ isSuccess: true, value: createdMovie });
+          this.dialogRef.close({ isSuccess: true, value: response.movie });
         });
     }
   }

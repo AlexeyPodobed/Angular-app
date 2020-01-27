@@ -1,14 +1,14 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 
-import { MovieModel } from 'src/app/models/movie.model';
-import { Observable, from } from 'rxjs';
-import { HttpService } from 'src/app/services/http.service';
-import { FormGroup } from '@angular/forms';
+import { MovieModel } from "src/app/models/movie.model";
+import { Observable, from } from "rxjs";
+import { HttpService } from "src/app/services/http.service";
+import { FormGroup } from "@angular/forms";
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  selector: "app-content",
+  templateUrl: "./content.component.html",
+  styleUrls: ["./content.component.css"]
 })
 export class ContentComponent implements OnInit, OnChanges {
   constructor(private httpService: HttpService) {}
@@ -18,14 +18,14 @@ export class ContentComponent implements OnInit, OnChanges {
   @Input() selectedGenre: string;
 
   @Input() formValue: FormGroup;
-  valueToUse: 'string';
+  valueToUse: "string";
 
   page = 1;
   count = 9;
 
   getContent() {
     const response = this.httpService.sendGetRequest(
-      'http://localhost:3000/films'
+      "http://localhost:3000/films"
     );
     response.subscribe((moviesArr: any) => {
       this.moviesArr = moviesArr.list;
@@ -39,22 +39,18 @@ export class ContentComponent implements OnInit, OnChanges {
       this.selectedMoviesArr.push(createdMovie);
     }
   }
-  deleteContent(movieId: string) {
-    console.log('Movie ', movieId);
+
+  deleteMovieFromArray(movieId: string) {
+    console.log("Movie ", movieId);
     this.selectedMoviesArr = this.selectedMoviesArr.filter(
       movie => movie.ID !== movieId
     );
-    this.httpService
-      .sendDelateRequest('http://localhost:3000/films', movieId)
-      .subscribe(result => {
-        console.log('RR ', result);
-      });
   }
 
   ganresFilter(val) {
     this.selectedMoviesArr = [];
     let filteredArray = [];
-    if (val === 'all') {
+    if (val === "all") {
       filteredArray = this.moviesArr;
     } else {
       this.moviesArr.forEach(value => {

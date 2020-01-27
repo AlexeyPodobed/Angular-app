@@ -9,26 +9,33 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./playermodal.component.css']
 })
 export class PlayermodalComponent implements OnInit {
-  private httpService: HttpService;
   @Input() moviesArr: MovieModel;
   @Input() selectedMoviesArr: MovieModel;
   ID: MovieModel;
   constructor(
+    private httpService: HttpService,
     public dialogRef: MatDialogRef<PlayermodalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: MovieModel
   ) {}
 
-  onNoClick(): void {
+  onNoClick() {
     this.dialogRef.close();
   }
 
-  deleteContent(movieId: string) {
-    console.log('Movie ', movieId);
-
+  deleteContent() {
+    console.log('DSDS ', this.dialogRef.componentInstance.data);
     this.httpService
-      .sendDelateRequest('http://localhost:3000/films', movieId)
-      .subscribe(result => {
-        console.log('RR ', result);
+      .sendDelateRequest(
+        'http://localhost:3000/films',
+        this.dialogRef.componentInstance.data.ID
+      )
+      .subscribe((result: any) => {
+        console.log('THIS ', this.dialogRef.componentInstance.data);
+        this.dialogRef.close({
+          isSuccess: true,
+          value: result.ID
+        });
+        console.log('nnn', result.ID);
       });
   }
 

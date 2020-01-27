@@ -12,12 +12,18 @@ import { PlayermodalComponent } from 'src/app/playermodal/playermodal.component'
 })
 export class OneMovieComponent implements OnInit {
   @Input() oneMovie: MovieModel;
+  @Output() deleteEvent = new EventEmitter<any>();
 
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
-    this.dialog.open(PlayermodalComponent, {
+    const openedDialog = this.dialog.open(PlayermodalComponent, {
       data: this.oneMovie
+    });
+    openedDialog.afterClosed().subscribe(result => {
+      if (result && result.isSuccess) {
+        this.deleteEvent.emit(result.value);
+      }
     });
   }
 

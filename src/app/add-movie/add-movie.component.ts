@@ -22,17 +22,9 @@ export class AddMovieComponent implements OnInit {
 
     openedDialog.afterClosed().subscribe(result => {
       if (result && result.isSuccess) {
-        // this.createMovieFunction(result.value);
         this.createEvent.emit(result.value);
       }
     });
   }
-
-  // notifyChanges(movie: MovieModel) {
-  //   this.createdMovie = movie;
-
-  //   console.log('SSS ', this.createdMovie);
-  // }
-
   ngOnInit() {}
 }
