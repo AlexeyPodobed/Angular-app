@@ -1,14 +1,12 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { MovieModel } from 'src/app/models/movie.model';
-import { MatDialog } from '@angular/material/dialog';
-
-import { PlayermodalComponent } from 'src/app/playermodal/playermodal.component';
+import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
+import { MovieModel } from "src/app/models/movie.model";
+import { MatDialog } from "@angular/material/dialog";
+import { PlayermodalComponent } from "src/app/components/playermodal/playermodal.component";
 
 @Component({
-  selector: 'app-one-movie',
-  templateUrl: './one-movie.component.html',
-
-  styleUrls: ['./one-movie.component.css']
+  selector: "app-one-movie",
+  templateUrl: "./one-movie.component.html",
+  styleUrls: ["./one-movie.component.css"]
 })
 export class OneMovieComponent implements OnInit {
   @Input() oneMovie: MovieModel;

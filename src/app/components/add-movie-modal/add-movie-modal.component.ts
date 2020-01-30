@@ -1,20 +1,7 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Inject,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MovieModel, SelectModel } from 'src/app/models/movie.model';
-import { Observable, from } from 'rxjs';
-import {
-  FormGroup,
-  FormControl,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({

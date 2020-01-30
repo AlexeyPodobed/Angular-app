@@ -13,7 +13,6 @@ export class MainComponentComponent implements OnInit {
   ngOnInit() {}
 
   siblingSelection(value: string) {
-    console.log('MAIN COMPONENT:', value);
     this.selectedGenre = value;
   }
 }

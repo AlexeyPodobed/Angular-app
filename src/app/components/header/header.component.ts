@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  Input,
-  Inject,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SelectModel } from 'src/app/models/movie.model';
 import { FormControl } from '@angular/forms';
 
@@ -17,7 +10,6 @@ import { FormControl } from '@angular/forms';
 export class HeaderComponent implements OnInit {
   selectedGanre = new FormControl();
   @Output() selectEvent = new EventEmitter<string>();
-
   @Output() ganres: SelectModel[] = [
     {
       Genred: 'Комедія',
@@ -55,6 +47,5 @@ export class HeaderComponent implements OnInit {
 
   selectGenre(selectedValue: string) {
     this.selectEvent.emit(selectedValue);
-    console.log('HEADER COMPONENT', selectedValue);
   }
 }

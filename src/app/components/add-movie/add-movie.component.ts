@@ -1,9 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-
-import { MovieModel } from 'src/app/models/movie.model';
 import { MatDialog } from '@angular/material/dialog';
-
-import { AddMovieModalComponent } from 'src/app/add-movie-modal/add-movie-modal.component';
+import { AddMovieModalComponent } from 'src/app/components/add-movie-modal/add-movie-modal.component';
 
 @Component({
   selector: 'app-add-movie',

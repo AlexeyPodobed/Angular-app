@@ -15,19 +15,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MainComponentComponent } from './main-component/main-component.component';
-import { HeaderComponent } from './header/header.component';
+import { MainComponentComponent } from './components/main-component/main-component.component';
+import { HeaderComponent } from './components/header/header.component';
 
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { OneMovieComponent } from './one-movie/one-movie.component';
-import { ContentComponent } from './content/content.component';
-import { AddMovieComponent } from './add-movie/add-movie.component';
-import { PlayermodalComponent } from './playermodal/playermodal.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { OneMovieComponent } from './components/one-movie/one-movie.component';
+import { ContentComponent } from './components/content/content.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { PlayermodalComponent } from './components/playermodal/playermodal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddMovieModalComponent } from './add-movie-modal/add-movie-modal.component';
+import { AddMovieModalComponent } from './components/add-movie-modal/add-movie-modal.component';
 import { from } from 'rxjs';
 import { HttpClient } from 'selenium-webdriver/http';
-import { SliderComponent } from './slider/slider.component';
+import { SliderComponent } from './components/slider/slider.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
